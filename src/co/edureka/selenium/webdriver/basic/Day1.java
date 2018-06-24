@@ -2,6 +2,7 @@ package co.edureka.selenium.webdriver.basic;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,11 +22,24 @@ public class Day1 {
 			
 			driver.get("http://www.edureka.co");
 //			driver.get("http://l-tike.com/");
+			searchCource();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	public void searchCource() {
+		try {
+			driver.findElement(By.id("search-inpl")).sendKeys("Java");
+			Thread.sleep(3000);
+			driver.findElement(By.id("search-button-bottom")).click();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		Day1 myObj = new Day1();
