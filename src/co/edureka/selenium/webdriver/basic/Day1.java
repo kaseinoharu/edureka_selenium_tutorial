@@ -30,9 +30,9 @@ public class Day1 {
 
 	public void searchCource() {
 		try {
-			driver.findElement(By.id("search-inpl")).sendKeys("Java");
+			driver.findElement(By.id("homeSearchBar")).sendKeys("Java");
 			Thread.sleep(3000);
-			driver.findElement(By.id("search-button-bottom")).click();
+			driver.findElement(By.id("homeSearchBarIcon")).click();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
