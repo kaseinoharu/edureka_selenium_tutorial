@@ -59,7 +59,7 @@ public class Day1 {
 //			driver.findElement(By.className("check4")).click();
 			
 			WebDriverWait wait = new WebDriverWait(driver, 5);//待ち時間を指定
-			By weekendDiv = By.xpath("//div[contains(text(), 'Weekend')]");
+			By weekendDiv = By.xpath("//diWekv[contains(text(), 'Weekend')]");
 			wait.until(ExpectedConditions.visibilityOfElementLocated(weekendDiv));
 			driver.findElement(weekendDiv).click();
 		} catch (Exception e) {
