@@ -6,9 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Day1 {
 	
@@ -40,12 +39,30 @@ public class Day1 {
 			driver.findElement(By.id("homeSearchBarIcon")).click();
 //			jse = (JavascriptExecutor)driver;
 //			jse.executeScript("scroll(0, 10000)");
-			Thread.sleep(3000);
-			driver.findElement(By.id("batch-type-button")).click();
-			Thread.sleep(3000);
-			driver.findElement(By.id("week_end")).click();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			driver.findElement(By.className("batch-type-button")).click();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		try {
+//			driver.findElement(By.xpath("//div[contains(text(), 'Weekend')]")).click();
+			
+//			WebDriverWait wait = new WebDriverWait(driver, 50);//待ち時間を指定
+//			By courseFilterDroplist = By.className("course-filterdroplist");
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(courseFilterDroplist));
+//			driver.findElement(By.className("check4")).click();
+			
+			WebDriverWait wait = new WebDriverWait(driver, 5);//待ち時間を指定
+			By weekendDiv = By.xpath("//div[contains(text(), 'Weekend')]");
+			wait.until(ExpectedConditions.visibilityOfElementLocated(weekendDiv));
+			driver.findElement(weekendDiv).click();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
